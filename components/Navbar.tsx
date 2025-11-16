@@ -62,19 +62,19 @@ export default function Navbar() {
           </motion.div>
 
           {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center gap-8">
+          <div className="hidden lg:flex items-center gap-10">
             {navLinks.map((link) => (
               <button
                 key={link.href}
                 onClick={() => scrollTo(link.href)}
-                className="text-sm font-medium text-ink hover:text-brand transition-colors"
+                className="text-base md:text-lg font-semibold text-ink hover:text-brand transition-colors"
               >
                 {link.label}
               </button>
             ))}
             <Button
               onClick={() => scrollTo('#waitlist')}
-              size="sm"
+              size="md"
             >
               Join Waitlist
             </Button>

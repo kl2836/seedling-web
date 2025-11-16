@@ -12,7 +12,10 @@ import FAQItem from '@/components/FAQItem';
 import { Users, Heart, TrendingUp, Search, Eye, Zap, CheckCircle2, ArrowRight, Globe, Handshake, Trophy, Sparkles, Star } from 'lucide-react';
 import DeviceFrame from '@/components/DeviceFrame';
 import PhasedAutoShowcase from '@/components/PhasedAutoShowcase';
-import HomeShowcase from '@/components/showcase/HomeShowcase';
+import HeroHomeFromApp from '@/components/showcase/HeroHomeFromApp';
+import HeroFeedFromApp from '@/components/showcase/HeroFeedFromApp';
+import MarkCubanProfileShowcase from '@/components/showcase/MarkCubanProfileShowcase';
+import { AnimatedWord } from '@/components/ui/AnimatedWord';
 import FeedShowcase from '@/components/showcase/FeedShowcase';
 import CelebrityProfileShowcase from '@/components/showcase/CelebrityProfileShowcase';
 import EndorsementsModuleShowcase from '@/components/showcase/EndorsementsModuleShowcase';
@@ -53,7 +56,7 @@ export default function Home() {
                 Believe Early. Get Rewarded Fast.
               </h1>
               <p className="text-xl sm:text-2xl text-muted mb-8 leading-relaxed">
-                The social investing platform where visible belief becomes early reward.
+                The social investing platform where you can join early, spend nothing, and still share in the upside.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Button
@@ -85,18 +88,16 @@ export default function Home() {
             >
               <DeviceFrame className="w-full max-w-[420px] mx-auto md:mx-0" aspect="phone">
                 <div className="relative h-full">
-                  {/* Trending chip */}
-                  <div className="absolute top-2 right-2 z-20 bg-emerald-600 text-white text-[10px] font-semibold px-2 py-0.5 rounded-full flex items-center gap-1">
-                    <TrendingUp className="w-3 h-3" />
-                    Now trending
-                  </div>
-                  
                   <PhasedAutoShowcase
-                    first={<HomeShowcase />}
-                    second={<FeedShowcase />}
-                    firstDuration={9000}
-                    secondDuration={9000}
-                    crossfadeMs={600}
+                    first={<HeroHomeFromApp />}
+                    second={<HeroFeedFromApp />}
+                    firstDuration={15000}
+                    secondDuration={15000}
+                    crossfadeMs={120}
+                    blink={true}
+                    scrollSpeed={1.6}
+                    scrollOnce={true}
+                    scrollStartDelayMs={500}
                   />
                 </div>
               </DeviceFrame>
@@ -171,8 +172,20 @@ export default function Home() {
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
             >
-              <h2 className="text-4xl md:text-5xl font-semibold tracking-tight text-neutral-900 mb-6 leading-tight">
-                See who the pros back.
+              <h2
+                className="
+                  text-4xl md:text-5xl font-semibold tracking-tight text-neutral-900 leading-tight
+                  md:whitespace-nowrap inline-block
+                "
+              >
+                {"See who "}
+                <AnimatedWord
+                  words={["the pros", "your friends"]}
+                  intervalMs={3000}
+                  fallback="the pros and your friends"
+                  className="text-emerald-700 font-semibold"
+                />
+                {" back."}
               </h2>
               <ul className="mt-6 space-y-3.5 text-neutral-700">
                 <li className="flex items-start gap-2">
@@ -200,13 +213,19 @@ export default function Home() {
               transition={{ duration: 0.6 }}
               className="flex justify-center md:justify-end"
             >
-              <DeviceFrame className="w-full max-w-[520px] hover:shadow-lg transition-shadow">
+              <DeviceFrame className="w-full max-w-[360px] md:max-w-[380px] hover:shadow-lg transition-shadow">
                 <PhasedAutoShowcase
-                  first={<FeedShowcase />}
-                  second={<CelebrityProfileShowcase />}
-                  firstDuration={9000}
-                  secondDuration={9000}
-                  crossfadeMs={600}
+                  first={<MarkCubanProfileShowcase />}
+                  second={<HeroFeedFromApp />}
+                  firstDuration={15000}
+                  secondDuration={15000}
+                  crossfadeMs={120}
+                  blink={true}
+                  scrollSpeed={1.6}
+                  scrollOnce={true}
+                  scrollStartDelayMs={500}
+                  activateOnVisible={true}
+                  startOnVisibleDelayMs={1200}
                 />
               </DeviceFrame>
             </motion.div>
@@ -266,9 +285,9 @@ export default function Home() {
               transition={{ duration: 0.6 }}
               className="lg:order-1 flex justify-center lg:justify-start"
             >
-              <DeviceFrame className="w-full max-w-[520px]" aspect="phone">
+              <div className="w-full max-w-[520px]">
                 <EndorsementsModuleShowcase />
-              </DeviceFrame>
+              </div>
             </motion.div>
           </div>
         </Container>
@@ -364,6 +383,7 @@ export default function Home() {
               { title: 'Browse businesses', desc: 'Discover startups in your area' },
               { title: 'Endorse early', desc: 'Show your support before funding' },
               { title: 'Track community growth', desc: 'Watch momentum build' },
+              { title: 'Get rewarded sooner', desc: 'Earn when businesses gain traction.' },
             ].map((item, i) => (
               <motion.div
                 key={i}
