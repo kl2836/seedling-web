@@ -1,26 +1,89 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Warm, human palette matching seedling-v2 */
+  --bg: #F5F1E9;
+  --bg-gradient: linear-gradient(180deg, #F7F4ED 0%, #EFE9DE 100%);
+  --surface: #FFFFFF;
+  --surface-2: #FAF7F1;
+  --ink: #1A1A1A;
+  --muted: #6B6B6B;
+  --border: #E7E1D8;
+
+  --brand: #2E7D5B;      /* deep green */
+  --brand-light: #6DB38B; /* accent green */
+  --brand-2: #6DB38B;
+  --brand-amber: #C8A968; /* gold accent */
+  --brand-coral: #D77B66;
+
+  --grad-brand: linear-gradient(135deg, #2E7D5B 0%, #4F9E79 45%, #6DB38B 100%);
+  --grad-amber: linear-gradient(135deg, #FFF2CC 0%, #F4E0A6 100%);
+  --grad-cream: linear-gradient(180deg, #FBFAF7 0%, #F6F2EA 100%);
+
+  /* Radii */
+  --radius-sm: 12px;
+  --radius-md: 16px;
+  --radius-lg: 20px;
+  --radius-xl: 24px;
+  --radius-2xl: 32px;
+  
+  /* Layered soft shadows */
+  --shadow-card: 0 2px 8px rgba(0,0,0,0.06);
+  --shadow-panel: 0 6px 16px rgba(0,0,0,0.08);
+  --shadow-float: 0 10px 28px rgba(0,0,0,0.12);
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-border: var(--border);
+  --color-brand: var(--brand);
+  --color-brand-light: var(--brand-light);
+  --color-brand-amber: var(--brand-amber);
+  --color-brand-coral: var(--brand-coral);
+  
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  
+  --radius-sm: var(--radius-sm);
+  --radius-md: var(--radius-md);
+  --radius-lg: var(--radius-lg);
+  --radius-xl: var(--radius-xl);
+  --radius-2xl: var(--radius-2xl);
+  
+  --shadow-card: var(--shadow-card);
+  --shadow-panel: var(--shadow-panel);
+  --shadow-float: var(--shadow-float);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html, body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-inter), system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading), system-ui, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+::selection {
+  background: rgba(46, 125, 91, 0.18);
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
 }
