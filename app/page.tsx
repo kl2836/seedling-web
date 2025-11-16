@@ -56,7 +56,7 @@ export default function Home() {
                 Believe Early. Get Rewarded Fast.
               </h1>
               <p className="text-xl sm:text-2xl text-muted mb-8 leading-relaxed">
-                The social investing platform where you can join early, spend nothing, and still share in the upside.
+                The social investing platform where early support costs nothing — and can still pay off.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Button
