@@ -19,6 +19,7 @@ import { AnimatedWord } from '@/components/ui/AnimatedWord';
 import FeedShowcase from '@/components/showcase/FeedShowcase';
 import CelebrityProfileShowcase from '@/components/showcase/CelebrityProfileShowcase';
 import EndorsementsModuleShowcase from '@/components/showcase/EndorsementsModuleShowcase';
+import SuccessStories from '@/components/sections/SuccessStories';
 
 export default function Home() {
   const scrollTo = (id: string) => {
@@ -405,6 +406,9 @@ export default function Home() {
           </div>
         </Container>
       </section>
+
+      {/* Success Stories */}
+      <SuccessStories />
 
       {/* Testimonials */}
       <section className="py-24 bg-surface">
