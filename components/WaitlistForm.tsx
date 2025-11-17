@@ -8,77 +8,34 @@ export default function WaitlistForm() {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-    role: 'Supporter',
+    role: 'Supporter or fan',
     message: '',
   });
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [isSuccess, setIsSuccess] = useState(false);
-  const [error, setError] = useState('');
+  const [status, setStatus] = useState<'idle' | 'success' | 'error'>('idle');
 
-  const handleSubmit = async (e: FormEvent) => {
+  const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
-    setError('');
-    setIsSubmitting(true);
+    setStatus('idle');
 
-    // Validate required fields
-    if (!formData.name || !formData.email) {
-      setError('Please fill in all required fields.');
-      setIsSubmitting(false);
+    // Read form values
+    const name = formData.name.trim();
+    const email = formData.email.trim();
+    const role = formData.role;
+    const message = formData.message.trim();
+
+    // Basic validation
+    if (!name || !email) {
+      setStatus('error');
       return;
     }
 
-    try {
-      const response = await fetch('/api/register', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
-      });
+    // Log to console
+    console.log('waitlist submission', { name, email, role, message });
 
-      const data = await response.json();
-
-      if (data.success) {
-        setIsSuccess(true);
-        setFormData({ name: '', email: '', role: 'Supporter', message: '' });
-      } else {
-        setError(data.error || 'Something went wrong. Please try again.');
-      }
-    } catch (err) {
-      setError('Network error. Please try again.');
-    } finally {
-      setIsSubmitting(false);
-    }
+    // Reset form and show success
+    setFormData({ name: '', email: '', role: 'Supporter or fan', message: '' });
+    setStatus('success');
   };
-
-  if (isSuccess) {
-    return (
-      <motion.div
-        initial={{ opacity: 0, scale: 0.9 }}
-        animate={{ opacity: 1, scale: 1 }}
-        className="bg-surface rounded-[var(--radius-xl)] p-8 sm:p-12 text-center shadow-[var(--shadow-card)]"
-      >
-        <motion.div
-          initial={{ scale: 0 }}
-          animate={{ scale: 1 }}
-          transition={{ delay: 0.2, type: 'spring' }}
-          className="w-16 h-16 mx-auto mb-4 rounded-full bg-[var(--grad-brand)] flex items-center justify-center"
-        >
-          <span className="text-3xl">✓</span>
-        </motion.div>
-        <h3 className="text-2xl font-bold text-ink mb-2">You're on the list!</h3>
-        <p className="text-muted mb-6">
-          We'll send you updates as we launch. Thanks for your interest!
-        </p>
-        <Button
-          onClick={() => setIsSuccess(false)}
-          variant="outline"
-        >
-          Submit Another
-        </Button>
-      </motion.div>
-    );
-  }
 
   return (
     <motion.form
@@ -96,6 +53,7 @@ export default function WaitlistForm() {
           <input
             type="text"
             id="name"
+            name="name"
             required
             value={formData.name}
             onChange={(e) => setFormData({ ...formData, name: e.target.value })}
@@ -111,6 +69,7 @@ export default function WaitlistForm() {
           <input
             type="email"
             id="email"
+            name="email"
             required
             value={formData.email}
             onChange={(e) => setFormData({ ...formData, email: e.target.value })}
@@ -121,17 +80,22 @@ export default function WaitlistForm() {
 
         <div>
           <label htmlFor="role" className="block text-sm font-medium text-ink mb-2">
-            Role
+            I am primarily a... *
           </label>
           <select
             id="role"
+            name="role"
+            required
             value={formData.role}
             onChange={(e) => setFormData({ ...formData, role: e.target.value })}
             className="w-full h-12 px-4 rounded-[var(--radius-md)] border border-border bg-surface text-ink focus:outline-none focus:ring-2 focus:ring-brand focus:border-transparent transition-all"
           >
+            <option value="Supporter or fan">Supporter or fan</option>
+            <option value="Individual investor">Individual investor</option>
             <option value="Founder">Founder</option>
-            <option value="Investor">Investor</option>
-            <option value="Supporter">Supporter</option>
+            <option value="Local business / SMB">Local business / SMB</option>
+            <option value="Creator / influencer">Creator / influencer</option>
+            <option value="Other">Other</option>
           </select>
         </div>
 
@@ -141,38 +105,47 @@ export default function WaitlistForm() {
           </label>
           <textarea
             id="message"
+            name="message"
             value={formData.message}
             onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-            rows={4}
+            rows={3}
             className="w-full px-4 py-3 rounded-[var(--radius-md)] border border-border bg-surface text-ink focus:outline-none focus:ring-2 focus:ring-brand focus:border-transparent transition-all resize-none"
-            placeholder="Tell us what you're excited about..."
+            placeholder="Tell us what you're most interested in (backing startups, getting my business discovered, etc.)."
           />
         </div>
 
-        {error && (
+        {status === 'error' && (
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             className="p-4 rounded-[var(--radius-md)] bg-red-50 border border-red-200 text-red-700 text-sm"
           >
-            {error}
+            Something went wrong. Please try again.
+          </motion.div>
+        )}
+
+        {status === 'success' && (
+          <motion.div
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="text-center text-green-600 mt-4"
+          >
+            🎉 You're in! We'll email you as we launch.
           </motion.div>
         )}
 
         <Button
           type="submit"
-          disabled={isSubmitting}
           className="w-full"
           size="lg"
         >
-          {isSubmitting ? 'Joining...' : 'Join Waitlist'}
+          Get Early Access
         </Button>
 
         <p className="text-xs text-muted text-center">
-          We'll only email you about early access — no spam.
+          We'll only email you about Seedling and early access — no spam.
         </p>
       </div>
     </motion.form>
   );
 }
-

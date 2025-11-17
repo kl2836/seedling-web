@@ -76,7 +76,7 @@ export default function Navbar() {
               onClick={() => scrollTo('#waitlist')}
               size="md"
             >
-              Join Waitlist
+              Get Early Access
             </Button>
           </div>
 
@@ -128,7 +128,7 @@ export default function Navbar() {
                 className="w-full"
                 size="md"
               >
-                Join Waitlist
+                Get Early Access
               </Button>
             </div>
           </motion.div>

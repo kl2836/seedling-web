@@ -53,11 +53,11 @@ export default function Home() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
             >
-              <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-ink mb-6 leading-tight">
-                Believe Early. Get Rewarded Fast.
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-ink mb-6 leading-tight">
+                A new way to support early and get rewarded fast.
               </h1>
               <p className="text-xl sm:text-2xl text-muted mb-8 leading-relaxed">
-                The social investing platform where early support costs nothing — and can still pay off.
+                The social investing platform for startups, local businesses, and creators where early support costs nothing — and can still pay off.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Button
@@ -65,7 +65,7 @@ export default function Home() {
                   size="lg"
                   className="w-full sm:w-auto"
                 >
-                  Join Waitlist
+                  Get Early Access
                 </Button>
                 <Button
                   onClick={() => scrollTo('how-it-works')}
@@ -350,23 +350,12 @@ export default function Home() {
               Endorsements are expressions of support, not investment advice. Investing involves risk.
             </p>
             <a
-              href="#whitepaper"
-              onClick={(e) => {
-                e.preventDefault();
-                const element = document.getElementById('whitepaper');
-                if (element) {
-                  const navbarHeight = window.innerWidth >= 640 ? 80 : 64;
-                  const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;
-                  const offsetPosition = elementPosition - navbarHeight - 16;
-                  window.scrollTo({
-                    top: offsetPosition,
-                    behavior: 'smooth'
-                  });
-                }
-              }}
-              className="inline-flex items-center rounded-xl bg-emerald-600 px-5 py-3 text-white font-medium hover:bg-emerald-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-emerald-600 transition-colors"
+              href="/seedling-whitepaper.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center rounded-full bg-emerald-600 px-4 py-2 text-sm font-medium text-white hover:bg-emerald-700 transition-colors"
             >
-              Read the Whitepaper
+              Read the Whitepaper →
             </a>
           </div>
         </Container>
@@ -472,7 +461,7 @@ export default function Home() {
                 Open in Browser
               </a>
               <a
-                href="/whitepaper.pdf"
+                href="/seedling-whitepaper.pdf"
                 className="rounded-xl bg-emerald-600 px-5 py-3 text-white font-medium hover:bg-emerald-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-emerald-600 transition-colors"
               >
                 Download PDF
@@ -538,7 +527,7 @@ export default function Home() {
               Be the first to join Seedling
             </h2>
             <p className="text-xl text-muted max-w-2xl mx-auto">
-              Sign up to get early access and updates as we launch.
+              Tell us who you are so we can invite you to the right early features, perks, and founder tools.
             </p>
           </motion.div>
           <WaitlistForm />
