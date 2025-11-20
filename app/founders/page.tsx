@@ -8,7 +8,7 @@ import Container from '@/components/Container';
 import SectionTitle from '@/components/SectionTitle';
 import Card from '@/components/Card';
 import FAQItem from '@/components/FAQItem';
-import { CheckCircle2 } from 'lucide-react';
+import { CheckCircle2, Sparkles, Zap, Target } from 'lucide-react';
 
 export default function FoundersPage() {
   const scrollTo = (id: string) => {
@@ -147,6 +147,135 @@ export default function FoundersPage() {
                 Whether you're an AI startup, local café, or creator, Seedling helps you capture belief early and translate it into long-term support and funding.
               </p>
             </Card>
+          </div>
+        </Container>
+      </section>
+
+      {/* How Seedling's AI Works for Founders */}
+      <section className="py-16 md:py-24 bg-bg">
+        <Container>
+          <SectionTitle
+            title="How Seedling's AI works for founders"
+            subtitle="From setting up your page to getting investor-ready, our AI is built to save you time and help you turn signal into real funding."
+            className="mb-16"
+          />
+          
+          <div className="grid md:grid-cols-2 gap-12 items-start">
+            {/* Left Side - Text Content */}
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+            >
+              <p className="text-lg text-muted mb-8 leading-relaxed">
+                Instead of spending weeks writing a pitch profile, figuring out what investors want, and navigating legal checklists alone, Seedling's AI acts like a co-pilot. It helps you launch fast, learn what resonates, and prepare for a raise when momentum is there.
+              </p>
+
+              <div className="space-y-6">
+                {/* AI Page Setup */}
+                <Card>
+                  <div className="flex items-start gap-4">
+                    <div className="w-10 h-10 rounded-full bg-brand/10 flex items-center justify-center flex-shrink-0">
+                      <Sparkles className="w-5 h-5 text-brand" />
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="text-xl font-bold text-ink mb-2">
+                        AI page setup
+                      </h3>
+                      <p className="text-muted leading-relaxed">
+                        Answer a few questions and let our AI draft your business page — from your headline to your story to which metrics to highlight. Edit anything, keep full control, but never start from a blank page.
+                      </p>
+                    </div>
+                  </div>
+                </Card>
+
+                {/* Investor-Ready Prep */}
+                <Card delay={0.1}>
+                  <div className="flex items-start gap-4">
+                    <div className="w-10 h-10 rounded-full bg-brand/10 flex items-center justify-center flex-shrink-0">
+                      <Zap className="w-5 h-5 text-brand" />
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="text-xl font-bold text-ink mb-2">
+                        Investor-ready prep
+                      </h3>
+                      <p className="text-muted leading-relaxed mb-2">
+                        Once you've reached enough endorsements or interest, we surface a tailored checklist of what you'll need to legally and operationally get ready for real investments: basic disclosures, key documents, and the right next steps for your stage and jurisdiction.
+                      </p>
+                      <p className="text-xs text-slate-500 mt-2">
+                        We help organize and streamline this process, but we don't replace your legal or tax advisors.
+                      </p>
+                    </div>
+                  </div>
+                </Card>
+
+                {/* AI Targeting and Matching */}
+                <Card delay={0.2}>
+                  <div className="flex items-start gap-4">
+                    <div className="w-10 h-10 rounded-full bg-brand/10 flex items-center justify-center flex-shrink-0">
+                      <Target className="w-5 h-5 text-brand" />
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="text-xl font-bold text-ink mb-2">
+                        AI targeting and matching
+                      </h3>
+                      <p className="text-muted leading-relaxed">
+                        Our AI looks at who has endorsed you, who follows similar companies, and what investors care about to help surface the most aligned supporters and potential investors — instead of shouting into a generic crowd.
+                      </p>
+                    </div>
+                  </div>
+                </Card>
+              </div>
+            </motion.div>
+
+            {/* Right Side - Visual Mockup */}
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="relative"
+            >
+              <Card className="p-6">
+                <div className="mb-4">
+                  <div className="flex items-center gap-2 mb-4">
+                    <div className="w-8 h-8 rounded-full bg-brand/10 flex items-center justify-center">
+                      <Sparkles className="w-4 h-4 text-brand" />
+                    </div>
+                    <span className="text-sm font-semibold text-ink">AI setup</span>
+                    <span className="text-xs text-muted ml-auto">Founder co-pilot</span>
+                  </div>
+                  
+                  <div className="space-y-3 mb-6">
+                    <div className="flex items-center justify-between p-3 bg-slate-50 rounded-lg">
+                      <span className="text-sm text-ink">Business profile</span>
+                      <span className="text-sm font-semibold text-brand">90% complete</span>
+                    </div>
+                    <div className="flex items-center justify-between p-3 bg-slate-50 rounded-lg">
+                      <span className="text-sm text-ink">Endorsements</span>
+                      <span className="text-sm font-semibold text-brand">145 supporters</span>
+                    </div>
+                    <div className="flex items-center justify-between p-3 bg-slate-50 rounded-lg">
+                      <span className="text-sm text-ink">Next step</span>
+                      <span className="text-sm font-semibold text-brand">Prepare investor-ready summary</span>
+                    </div>
+                  </div>
+
+                  <div className="border-t border-slate-200 pt-4">
+                    <div className="bg-brand/5 rounded-lg p-4">
+                      <div className="flex items-start gap-2 mb-2">
+                        <span className="text-xs font-semibold text-brand uppercase tracking-wide">AI Suggestion</span>
+                      </div>
+                      <h4 className="text-sm font-semibold text-ink mb-1">Suggested headline</h4>
+                      <p className="text-xs text-muted mb-3">"Building the future of sustainable food delivery"</p>
+                      <h4 className="text-sm font-semibold text-ink mb-1">Suggested pitch angle</h4>
+                      <p className="text-xs text-muted">Emphasize your early customer traction and local market validation</p>
+                    </div>
+                  </div>
+                </div>
+              </Card>
+            </motion.div>
           </div>
         </Container>
       </section>
@@ -400,6 +529,9 @@ export default function FoundersPage() {
               >
                 Apply as a founder
               </Button>
+              <p className="text-sm text-slate-500 mt-4">
+                Seedling combines social signal and AI — so when it's time to raise, you're not starting from zero or alone.
+              </p>
             </div>
           </div>
         </Container>

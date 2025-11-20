@@ -394,6 +394,26 @@ export default function Home() {
                 </Card>
               </div>
 
+              {/* AI Card */}
+              <div className="rounded-2xl border border-slate-200 bg-white/60 p-4 mt-4 flex gap-3 mb-8">
+                <div className="flex-shrink-0">
+                  <div className="w-10 h-10 rounded-full bg-brand/10 flex items-center justify-center">
+                    <Sparkles className="w-5 h-5 text-brand" />
+                  </div>
+                </div>
+                <div className="flex-1">
+                  <h4 className="text-base font-semibold text-ink mb-2">
+                    AI that helps you launch and raise faster
+                  </h4>
+                  <p className="text-sm text-muted leading-relaxed mb-2">
+                    Seedling's AI helps you set up a polished business page in minutes, recommends how to position your story, and, once you've gathered enough endorsements, guides you through the documents and steps you'll need to get ready for real investment.
+                  </p>
+                  <p className="text-xs text-slate-500 mt-2">
+                    We help streamline legal and compliance prep, but you'll still make final decisions and work with your own advisors where required.
+                  </p>
+                </div>
+              </div>
+
               <div className="mt-auto">
                 <Button
                   href="/founders"
