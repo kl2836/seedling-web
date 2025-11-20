@@ -15,7 +15,7 @@ import PhasedAutoShowcase from '@/components/PhasedAutoShowcase';
 import HeroHomeFromApp from '@/components/showcase/HeroHomeFromApp';
 import HeroFeedFromApp from '@/components/showcase/HeroFeedFromApp';
 import MarkCubanProfileShowcase from '@/components/showcase/MarkCubanProfileShowcase';
-import { AnimatedWord } from '@/components/ui/AnimatedWord';
+import RotatingPhrase from '@/components/ui/RotatingPhrase';
 import FeedShowcase from '@/components/showcase/FeedShowcase';
 import CelebrityProfileShowcase from '@/components/showcase/CelebrityProfileShowcase';
 import EndorsementsModuleShowcase from '@/components/showcase/EndorsementsModuleShowcase';
@@ -54,10 +54,10 @@ export default function Home() {
               transition={{ duration: 0.6 }}
             >
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-ink mb-6 leading-tight">
-                A new way to support early and get rewarded fast.
+                Investing, reimagined.
               </h1>
               <p className="text-xl sm:text-2xl text-muted mb-8 leading-relaxed">
-                The social investing platform for startups, local businesses, and creators where early support costs nothing — and can still pay off.
+                The social investing platform where you can invest or support without spending — and get rewarded for both, <em>fast</em>.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Button
@@ -98,7 +98,8 @@ export default function Home() {
                     blink={true}
                     scrollSpeed={1.6}
                     scrollOnce={true}
-                    scrollStartDelayMs={500}
+                    scrollStartDelayMs={3000}
+                    endDwellMs={2000}
                   />
                 </div>
               </DeviceFrame>
@@ -153,7 +154,7 @@ export default function Home() {
                 Earn early when belief pays off
               </h3>
               <p className="text-muted leading-relaxed text-center">
-                Get recognized — and sometimes rewarded — sooner than traditional investing.
+                Get recognized — and sometimes financially rewarded — sooner than traditional investing, depending on how businesses reward early supporters.
               </p>
             </Card>
           </div>
@@ -163,30 +164,18 @@ export default function Home() {
         </Container>
       </section>
 
-      {/* For Investors */}
-      <section id="for-investors" className="py-16 md:py-24 bg-surface">
+      {/* Social Proof — See who your friends and the pros back */}
+      <section id="for-investors" className="py-20 md:py-28 bg-bg">
         <Container>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-center">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-start">
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
             >
-              <h2
-                className="
-                  text-4xl md:text-5xl font-semibold tracking-tight text-neutral-900 leading-tight
-                  md:whitespace-nowrap inline-block
-                "
-              >
-                {"See who "}
-                <AnimatedWord
-                  words={["the pros", "your friends"]}
-                  intervalMs={3000}
-                  fallback="the pros and your friends"
-                  className="text-emerald-700 font-semibold"
-                />
-                {" back."}
+              <h2 className="text-3xl md:text-4xl font-semibold tracking-tight text-neutral-900 leading-tight">
+                See who <RotatingPhrase /> back.
               </h2>
               <ul className="mt-6 space-y-3.5 text-neutral-700">
                 <li className="flex items-start gap-2">
@@ -224,7 +213,8 @@ export default function Home() {
                   blink={true}
                   scrollSpeed={1.6}
                   scrollOnce={true}
-                  scrollStartDelayMs={500}
+                  scrollStartDelayMs={3000}
+                  endDwellMs={2000}
                   activateOnVisible={true}
                   startOnVisibleDelayMs={1200}
                 />
@@ -234,85 +224,28 @@ export default function Home() {
         </Container>
       </section>
 
-      {/* For Founders */}
-      <section id="for-founders" className="py-24 bg-bg">
-        <Container>
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="lg:order-2"
-            >
-              <h2 className="text-4xl sm:text-5xl font-bold text-ink mb-6">
-                Turn early belief into momentum.
-              </h2>
-              <div className="space-y-6">
-                <div className="flex items-start gap-4">
-                  <div className="w-6 h-6 rounded-full bg-brand-light flex items-center justify-center flex-shrink-0 mt-1">
-                    <CheckCircle2 className="w-4 h-4 text-white" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-ink mb-1">Gather public endorsements that show traction</h3>
-                    <p className="text-muted">Build credibility through community support before your funding round.</p>
-                  </div>
-                </div>
-                <div className="flex items-start gap-4">
-                  <div className="w-6 h-6 rounded-full bg-brand-light flex items-center justify-center flex-shrink-0 mt-1">
-                    <CheckCircle2 className="w-4 h-4 text-white" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-ink mb-1">Convert community support into funding</h3>
-                    <p className="text-muted">Turn endorsements into investments when you're ready to raise.</p>
-                  </div>
-                </div>
-                <div className="flex items-start gap-4">
-                  <div className="w-6 h-6 rounded-full bg-brand-light flex items-center justify-center flex-shrink-0 mt-1">
-                    <CheckCircle2 className="w-4 h-4 text-white" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-ink mb-1">Engage investors with transparent updates</h3>
-                    <p className="text-muted">Share your journey and build trust with potential backers.</p>
-                  </div>
-                </div>
-              </div>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="lg:order-1 flex justify-center lg:justify-start"
-            >
-              <div className="w-full max-w-[520px]">
-                <EndorsementsModuleShowcase />
-              </div>
-            </motion.div>
-          </div>
-        </Container>
-      </section>
-
       {/* Endorsements Section */}
       <section id="endorsements" className="py-24 bg-surface">
         <Container>
-          <SectionTitle
-            title="Endorsements: proof before funding"
-            subtitle="Show your belief early, help startups gain visibility, and optionally convert to investment later."
-            className="mb-16"
-          />
+          <div className="text-center mb-16">
+            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-ink mb-4">
+              Endorsements: the free signal that powers Seedling
+            </h2>
+            <p className="text-lg sm:text-xl text-muted max-w-2xl mx-auto">
+              Show belief early, help startups gain visibility, and optionally convert to investment later.
+            </p>
+          </div>
           
-          <div className="grid md:grid-cols-3 gap-8 mb-12">
+          <div className="grid md:grid-cols-3 gap-8 mb-8">
             <Card>
               <div className="w-12 h-12 rounded-full bg-brand-amber/20 flex items-center justify-center mb-4">
                 <Heart className="w-6 h-6 text-brand-amber" />
               </div>
               <h3 className="text-xl font-bold text-ink mb-3">
-                Signal belief before financial setup
+                Signal belief early
               </h3>
               <p className="text-muted">
-                Endorse startups you believe in, even before they're ready to accept investments.
+                Endorse companies you believe in, even before they're ready to accept investment.
               </p>
             </Card>
 
@@ -333,30 +266,144 @@ export default function Home() {
                 <ArrowRight className="w-6 h-6 text-brand" />
               </div>
               <h3 className="text-xl font-bold text-ink mb-3">
-                Optionally convert to investment later
+                Early support gets rewarded
               </h3>
               <p className="text-muted">
-                When companies open funding, your endorsement can seamlessly become an investment.
+                Early endorsers get rewarded when the companies they back grow, gain traction, or hit key milestones.
               </p>
             </Card>
           </div>
 
-          <div className="bg-gradient-to-r from-brand/5 to-brand-light/5 rounded-[var(--radius-xl)] p-8 text-center">
-            <div className="inline-flex items-center gap-2 bg-surface rounded-full px-6 py-3 shadow-[var(--shadow-card)] mb-4">
-              <span className="text-2xl">🏆</span>
-              <span className="font-semibold text-ink">Influenced 23 startups this month</span>
-            </div>
-            <p className="text-sm text-muted max-w-2xl mx-auto mb-6">
-              Endorsements are expressions of support, not investment advice. Investing involves risk.
-            </p>
-            <a
-              href="/seedling-whitepaper.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center rounded-full bg-emerald-600 px-4 py-2 text-sm font-medium text-white hover:bg-emerald-700 transition-colors"
+          <div className="text-center">
+            <Button
+              href="/endorsements"
+              size="lg"
             >
-              Read the Whitepaper →
-            </a>
+              Learn more about endorsements
+            </Button>
+          </div>
+        </Container>
+      </section>
+
+      {/* Dual Pathways — For Individuals & Investors + For Businesses & Founders */}
+      <section className="py-16 md:py-24 bg-surface">
+        <Container>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
+            {/* Left Column — For Individuals & Investors */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="flex flex-col h-full"
+            >
+              <h3 className="text-xl md:text-2xl font-semibold text-ink mb-4">
+                For Individuals & Investors
+              </h3>
+              <h2 className="text-3xl sm:text-4xl font-bold text-ink mb-4">
+                Start building upside early — even before you invest
+              </h2>
+              <p className="text-lg text-muted mb-8">
+                Endorse ideas you believe in, build a track record, and potentially get rewarded earlier — without needing to write a check on day one.
+              </p>
+
+              <div className="grid gap-6 mb-8">
+                <Card>
+                  <h3 className="text-xl font-bold text-ink mb-3">
+                    Participate without spending first
+                  </h3>
+                  <p className="text-muted leading-relaxed">
+                    Use endorsements to back startups, local businesses, and creators you believe in—no upfront investment required.
+                  </p>
+                </Card>
+
+                <Card delay={0.1}>
+                  <h3 className="text-xl font-bold text-ink mb-3">
+                    Get recognized and potentially rewarded earlier
+                  </h3>
+                  <p className="text-muted leading-relaxed">
+                    Early endorsers may gain financial upside when companies grow, raise funding, or offer early supporter rewards. Your endorsement can unlock perks, access, and even potential monetary benefits.
+                  </p>
+                </Card>
+
+                <Card delay={0.2}>
+                  <h3 className="text-xl font-bold text-ink mb-3">
+                    Build a public profile of what you believe in
+                  </h3>
+                  <p className="text-muted leading-relaxed">
+                    Your profile shows who you've backed, your early calls, and how your picks have evolved over time. And as you accumulate early picks, your track record becomes a potential source of financial gain when your endorsed companies succeed.
+                  </p>
+                </Card>
+              </div>
+
+              <div className="mt-auto">
+                <Button
+                  href="/investors"
+                  size="lg"
+                  className="w-full sm:w-auto"
+                >
+                  Learn more as an investor
+                </Button>
+              </div>
+            </motion.div>
+
+            {/* Right Column — For Businesses & Founders */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="flex flex-col h-full"
+            >
+              <h3 className="text-xl md:text-2xl font-semibold text-ink mb-4">
+                For Businesses & Founders
+              </h3>
+              <h2 className="text-3xl sm:text-4xl font-bold text-ink mb-4">
+                Turn belief into traction for your business
+              </h2>
+              <p className="text-lg text-muted mb-8">
+                Collect public support, build a warm list of backers, and be ready for funding when the time is right.
+              </p>
+
+              <div className="grid gap-6 mb-8">
+                <Card>
+                  <h3 className="text-xl font-bold text-ink mb-3">
+                    Capture belief before you raise
+                  </h3>
+                  <p className="text-muted leading-relaxed">
+                    Collect endorsements from customers and fans even before you open a funding round.
+                  </p>
+                </Card>
+
+                <Card delay={0.1}>
+                  <h3 className="text-xl font-bold text-ink mb-3">
+                    Show investors real demand
+                  </h3>
+                  <p className="text-muted leading-relaxed">
+                    Use public endorsements and follower signals to prove there's real interest behind your business.
+                  </p>
+                </Card>
+
+                <Card delay={0.2}>
+                  <h3 className="text-xl font-bold text-ink mb-3">
+                    Build a supporter list you own
+                  </h3>
+                  <p className="text-muted leading-relaxed">
+                    Grow a list of people who've already raised their hand so you're not starting from zero when you fundraise.
+                  </p>
+                </Card>
+              </div>
+
+              <div className="mt-auto">
+                <Button
+                  href="/founders"
+                  size="lg"
+                  className="w-full sm:w-auto"
+                >
+                  Learn more as a founder
+                </Button>
+              </div>
+            </motion.div>
           </div>
         </Container>
       </section>
@@ -369,29 +416,113 @@ export default function Home() {
             className="mb-12"
           />
           <div className="flex gap-6 overflow-x-auto pb-6 scrollbar-hide">
-            {[
-              { title: 'Browse businesses', desc: 'Discover startups in your area' },
-              { title: 'Endorse early', desc: 'Show your support before funding' },
-              { title: 'Track community growth', desc: 'Watch momentum build' },
-              { title: 'Get rewarded sooner', desc: 'Earn when businesses gain traction.' },
-            ].map((item, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, x: 50 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: i * 0.1 }}
-                className="flex-shrink-0 w-80"
-              >
-                <div className="bg-surface rounded-[var(--radius-xl)] p-6 shadow-[var(--shadow-card)]">
-                  <div className="aspect-video bg-gradient-to-br from-brand/10 to-brand-light/10 rounded-[var(--radius-md)] mb-4 flex items-center justify-center">
-                    <span className="text-muted text-sm">Mockup {i + 1}</span>
+            {/* Card 1: Browse businesses */}
+            <motion.div
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0 }}
+              className="flex-shrink-0 w-80"
+            >
+              <div className="bg-surface rounded-[var(--radius-xl)] p-6 shadow-[var(--shadow-card)]">
+                <div className="aspect-video bg-gradient-to-br from-brand/10 to-brand-light/10 rounded-[var(--radius-md)] mb-4 p-4 flex flex-col justify-between">
+                  <div className="space-y-2">
+                    <div className="flex items-center gap-2 p-2 bg-white/80 rounded-lg">
+                      <div className="w-8 h-8 rounded-lg bg-[var(--grad-brand)] flex items-center justify-center">
+                        <span className="text-white text-xs">🌱</span>
+                      </div>
+                      <div className="flex-1">
+                        <div className="text-xs font-semibold text-ink">Jenny's Kitchen</div>
+                        <div className="text-[10px] text-muted">Local food startup</div>
+                      </div>
+                    </div>
+                    <div className="flex items-center gap-2 p-2 bg-white/80 rounded-lg">
+                      <div className="w-8 h-8 rounded-lg bg-[var(--grad-brand)] flex items-center justify-center">
+                        <span className="text-white text-xs">☕</span>
+                      </div>
+                      <div className="flex-1">
+                        <div className="text-xs font-semibold text-ink">Daily Grind Café</div>
+                        <div className="text-[10px] text-muted">Community coffee</div>
+                      </div>
+                    </div>
                   </div>
-                  <h3 className="font-semibold text-ink mb-1">{item.title}</h3>
-                  <p className="text-sm text-muted">{item.desc}</p>
                 </div>
-              </motion.div>
-            ))}
+                <h3 className="font-semibold text-ink mb-1">Browse businesses</h3>
+                <p className="text-sm text-muted">Discover startups in your area</p>
+              </div>
+            </motion.div>
+
+            {/* Card 2: Endorse early */}
+            <motion.div
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+              className="flex-shrink-0 w-80"
+            >
+              <div className="bg-surface rounded-[var(--radius-xl)] p-6 shadow-[var(--shadow-card)]">
+                <div className="aspect-video bg-gradient-to-br from-brand/10 to-brand-light/10 rounded-[var(--radius-md)] mb-4 p-4 flex items-center justify-center">
+                  <div className="bg-white/90 rounded-xl p-4 w-full">
+                    <div className="flex items-center justify-between mb-3">
+                      <div className="text-xs font-semibold text-ink">TechFlow Solutions</div>
+                      <Heart className="w-4 h-4 text-brand" />
+                    </div>
+                    <button className="w-full px-3 py-2 rounded-lg bg-emerald-600 text-white text-xs font-semibold flex items-center justify-center gap-2">
+                      <Heart className="w-3 h-3" />
+                      Endorse
+                    </button>
+                  </div>
+                </div>
+                <h3 className="font-semibold text-ink mb-1">Endorse early</h3>
+                <p className="text-sm text-muted">Show your support before funding</p>
+              </div>
+            </motion.div>
+
+            {/* Card 3: Track community growth */}
+            <motion.div
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              className="flex-shrink-0 w-80"
+            >
+              <div className="bg-surface rounded-[var(--radius-xl)] p-6 shadow-[var(--shadow-card)]">
+                <div className="aspect-video bg-gradient-to-br from-brand/10 to-brand-light/10 rounded-[var(--radius-md)] mb-4 p-4 flex items-end">
+                  <div className="w-full space-y-2">
+                    <div className="flex items-end gap-1 h-8">
+                      <div className="flex-1 bg-[var(--grad-brand)] rounded-t" style={{ height: '40%' }}></div>
+                      <div className="flex-1 bg-[var(--grad-brand)] rounded-t" style={{ height: '60%' }}></div>
+                      <div className="flex-1 bg-[var(--grad-brand)] rounded-t" style={{ height: '80%' }}></div>
+                      <div className="flex-1 bg-[var(--grad-brand)] rounded-t" style={{ height: '100%' }}></div>
+                    </div>
+                    <div className="text-xs text-muted text-center">Community growth</div>
+                  </div>
+                </div>
+                <h3 className="font-semibold text-ink mb-1">Track community growth</h3>
+                <p className="text-sm text-muted">Watch momentum build</p>
+              </div>
+            </motion.div>
+
+            {/* Card 4: Get rewarded sooner */}
+            <motion.div
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+              className="flex-shrink-0 w-80"
+            >
+              <div className="bg-surface rounded-[var(--radius-xl)] p-6 shadow-[var(--shadow-card)]">
+                <div className="aspect-video bg-gradient-to-br from-brand/10 to-brand-light/10 rounded-[var(--radius-md)] mb-4 p-4 flex items-center justify-center">
+                  <div className="bg-white/90 rounded-xl p-4 w-full text-center">
+                    <div className="text-2xl mb-2">🏆</div>
+                    <div className="text-sm font-semibold text-ink mb-1">Influenced 23</div>
+                    <div className="text-xs text-muted">startups this month</div>
+                  </div>
+                </div>
+                <h3 className="font-semibold text-ink mb-1">Get rewarded sooner</h3>
+                <p className="text-sm text-muted">Earn when businesses gain traction.</p>
+              </div>
+            </motion.div>
           </div>
         </Container>
       </section>
@@ -482,34 +613,34 @@ export default function Home() {
             className="mb-16"
           />
           <div className="max-w-3xl mx-auto bg-surface rounded-[var(--radius-xl)] shadow-[var(--shadow-card)] overflow-hidden">
-            {[
-              {
-                q: "What's an endorsement on Seedling?",
-                a: "An endorsement is a public expression of support for a startup or business. It's a way to show you believe in a company before they're ready to accept investments. Endorsements help founders build credibility and can later convert to investments when funding opens.",
-              },
-              {
-                q: 'Is this crowdfunding?',
-                a: "Not exactly. Seedling focuses on endorsements first—public support that helps startups gain visibility. When businesses are ready, endorsements can convert to investments. We're building a social investing platform that emphasizes community and early belief.",
-              },
-              {
-                q: 'How do founders join?',
-                a: "Founders can join the waitlist to get early access. Once launched, you'll be able to create a profile for your business, share updates, and start gathering endorsements from your community.",
-              },
-              {
-                q: 'When will investing be open?',
-                a: "We're launching with endorsements first, and investing features will follow as we ensure compliance and build out the infrastructure. Join the waitlist to be notified when investing becomes available.",
-              },
-              {
-                q: 'Is Seedling regulated?',
-                a: "We're working closely with legal advisors to ensure full compliance with securities regulations. Investing features will only launch once we've met all regulatory requirements.",
-              },
-              {
-                q: 'How are endorsements different from likes?',
-                a: "Endorsements are more meaningful than likes—they're public commitments of support that can convert to investments. They carry more weight and help founders demonstrate real traction and community belief.",
-              },
-            ].map((faq, i) => (
-              <FAQItem key={i} question={faq.q} answer={faq.a} />
-            ))}
+              {[
+                {
+                  q: "What's an endorsement on Seedling?",
+                  a: "An endorsement is a public expression of support for a startup or business. It's a way to show you believe in a company before they're ready to accept investments. Endorsements help founders build credibility and can later convert to investments when funding opens.",
+                },
+                {
+                  q: 'Is this crowdfunding?',
+                  a: "Not exactly. Seedling focuses on endorsements first—public support that helps startups gain visibility. When businesses are ready, endorsements can convert to investments. We're building a social investing platform that emphasizes community and early belief.",
+                },
+                {
+                  q: 'How do founders join?',
+                  a: "Founders can join the waitlist to get early access. Once launched, you'll be able to create a profile for your business, share updates, and start gathering endorsements from your community.",
+                },
+                {
+                  q: 'When will investing be open?',
+                  a: "We're launching with endorsements first, and investing features will follow as we ensure compliance and build out the infrastructure. Join the waitlist to be notified when investing becomes available.",
+                },
+                {
+                  q: 'Is Seedling regulated?',
+                  a: "We're working closely with legal advisors to ensure full compliance with securities regulations. Investing features will only launch once we've met all regulatory requirements.",
+                },
+                {
+                  q: 'How are endorsements different from likes?',
+                  a: "Endorsements are more meaningful than likes—they're public commitments of support that can convert to investments. They carry more weight and help founders demonstrate real traction and community belief.",
+                },
+              ].map((faq, i) => (
+                <FAQItem key={i} question={faq.q} answer={faq.a} />
+              ))}
           </div>
         </Container>
       </section>

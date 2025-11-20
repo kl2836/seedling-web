@@ -2,11 +2,14 @@
 
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { usePathname } from 'next/navigation';
+import Link from 'next/link';
 import Button from './Button';
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const pathname = usePathname();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -17,15 +20,42 @@ export default function Navbar() {
   }, []);
 
   const navLinks = [
-    { label: 'Home', href: '#home' },
-    { label: 'How It Works', href: '#how-it-works' },
-    { label: 'For Investors', href: '#for-investors' },
-    { label: 'For Founders', href: '#for-founders' },
-    { label: 'Endorsements', href: '#endorsements' },
-    { label: 'FAQ', href: '#faq' },
+    { label: 'Home', href: '#home', isAnchor: true },
+    { label: 'How It Works', href: '#how-it-works', isAnchor: true },
+    { label: 'For Investors', href: '/investors', isAnchor: false },
+    { label: 'For Founders', href: '/founders', isAnchor: false },
+    { label: 'Endorsements', href: '/endorsements', isAnchor: false },
+    { label: 'FAQ', href: '#faq', isAnchor: true },
   ];
 
+  const handleNavClick = (link: typeof navLinks[0]) => {
+    if (link.isAnchor) {
+      // If we're on a different page, navigate to home first, then scroll
+      if (pathname !== '/') {
+        window.location.href = `/${link.href}`;
+        return;
+      }
+      const element = document.querySelector(link.href);
+      if (element) {
+        // Account for fixed navbar: h-16 (64px) on mobile, h-20 (80px) on desktop
+        const navbarHeight = window.innerWidth >= 640 ? 80 : 64;
+        const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;
+        const offsetPosition = elementPosition - navbarHeight - 16; // Extra 16px for breathing room
+
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth'
+        });
+      }
+    }
+    setIsOpen(false);
+  };
+
   const scrollTo = (href: string) => {
+    if (pathname !== '/') {
+      window.location.href = `/${href}`;
+      return;
+    }
     const element = document.querySelector(href);
     if (element) {
       // Account for fixed navbar: h-16 (64px) on mobile, h-20 (80px) on desktop
@@ -63,15 +93,32 @@ export default function Navbar() {
 
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center gap-10">
-            {navLinks.map((link) => (
-              <button
-                key={link.href}
-                onClick={() => scrollTo(link.href)}
-                className="text-base md:text-lg font-semibold text-ink hover:text-brand transition-colors"
-              >
-                {link.label}
-              </button>
-            ))}
+            {navLinks.map((link) => {
+              if (link.isAnchor) {
+                return (
+                  <button
+                    key={link.href}
+                    onClick={() => handleNavClick(link)}
+                    className="text-base md:text-lg font-semibold text-ink hover:text-brand transition-colors"
+                  >
+                    {link.label}
+                  </button>
+                );
+              }
+              return (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className={`text-base md:text-lg font-semibold transition-colors ${
+                    pathname === link.href
+                      ? 'text-brand'
+                      : 'text-ink hover:text-brand'
+                  }`}
+                >
+                  {link.label}
+                </Link>
+              );
+            })}
             <Button
               onClick={() => scrollTo('#waitlist')}
               size="md"
@@ -114,15 +161,33 @@ export default function Navbar() {
             className="lg:hidden bg-surface border-t border-border"
           >
             <div className="px-4 py-6 space-y-4">
-              {navLinks.map((link) => (
-                <button
-                  key={link.href}
-                  onClick={() => scrollTo(link.href)}
-                  className="block w-full text-left text-base font-medium text-ink hover:text-brand transition-colors py-2"
-                >
-                  {link.label}
-                </button>
-              ))}
+              {navLinks.map((link) => {
+                if (link.isAnchor) {
+                  return (
+                    <button
+                      key={link.href}
+                      onClick={() => handleNavClick(link)}
+                      className="block w-full text-left text-base font-medium text-ink hover:text-brand transition-colors py-2"
+                    >
+                      {link.label}
+                    </button>
+                  );
+                }
+                return (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    onClick={() => setIsOpen(false)}
+                    className={`block w-full text-left text-base font-medium transition-colors py-2 ${
+                      pathname === link.href
+                        ? 'text-brand'
+                        : 'text-ink hover:text-brand'
+                    }`}
+                  >
+                    {link.label}
+                  </Link>
+                );
+              })}
               <Button
                 onClick={() => scrollTo('#waitlist')}
                 className="w-full"
