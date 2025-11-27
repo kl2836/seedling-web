@@ -20,6 +20,8 @@ import FeedShowcase from '@/components/showcase/FeedShowcase';
 import CelebrityProfileShowcase from '@/components/showcase/CelebrityProfileShowcase';
 import EndorsementsModuleShowcase from '@/components/showcase/EndorsementsModuleShowcase';
 import SuccessStories from '@/components/sections/SuccessStories';
+import LandingMockFeed from '@/components/landing/LandingMockFeed';
+import SocialProofFeed from '@/components/landing/SocialProofFeed';
 
 export default function Home() {
   const scrollTo = (id: string) => {
@@ -54,10 +56,10 @@ export default function Home() {
               transition={{ duration: 0.6 }}
             >
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-ink mb-6 leading-tight">
-                Investing, reimagined.
+                Endorse or Invest.
               </h1>
               <p className="text-xl sm:text-2xl text-muted mb-8 leading-relaxed">
-                The social investing platform where you can invest or support without spending — and get rewarded for both, <em>fast</em>.
+                The social investing platform for backing startups, creators, and businesses — with free endorsements, direct investing, and fast payouts for <em>both</em>.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Button
@@ -85,24 +87,9 @@ export default function Home() {
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="relative mt-8 md:mt-0"
+              className="mt-10 lg:mt-0 flex justify-center lg:justify-end"
             >
-              <DeviceFrame className="w-full max-w-[420px] mx-auto md:mx-0" aspect="phone">
-                <div className="relative h-full">
-                  <PhasedAutoShowcase
-                    first={<HeroHomeFromApp />}
-                    second={<HeroFeedFromApp />}
-                    firstDuration={15000}
-                    secondDuration={15000}
-                    crossfadeMs={120}
-                    blink={true}
-                    scrollSpeed={1.6}
-                    scrollOnce={true}
-                    scrollStartDelayMs={3000}
-                    endDwellMs={2000}
-                  />
-                </div>
-              </DeviceFrame>
+              <LandingMockFeed />
             </motion.div>
           </div>
         </Container>
@@ -125,10 +112,10 @@ export default function Home() {
                 <Users className="w-9 h-9 text-[#16a34a]" />
               </div>
               <h3 className="text-2xl font-bold text-ink mb-4 text-center">
-                Discover through your network
+                Discover with your network
               </h3>
               <p className="text-muted leading-relaxed text-center">
-                See which startups, creators, and local businesses your friends, mentors, and top investors are backing.
+                See which startups, creators, and businesses your friends and favorite investors are backing.
               </p>
             </Card>
 
@@ -138,10 +125,10 @@ export default function Home() {
                 <Star className="w-9 h-9 text-[#16a34a]" />
               </div>
               <h3 className="text-2xl font-bold text-ink mb-4 text-center">
-                Back what you believe in
+                Endorse for free or invest
               </h3>
               <p className="text-muted leading-relaxed text-center">
-                Endorse or invest in ideas you support — no money required to start.
+                Depending on the business, give a free endorsement in a few taps or invest real capital when you're ready — with no minimums to start.
               </p>
             </Card>
 
@@ -151,10 +138,10 @@ export default function Home() {
                 <Trophy className="w-9 h-9 text-[#16a34a]" />
               </div>
               <h3 className="text-2xl font-bold text-ink mb-4 text-center">
-                Earn early when belief pays off
+                Earn sooner than typical investing
               </h3>
               <p className="text-muted leading-relaxed text-center">
-                Get recognized — and sometimes financially rewarded — sooner than traditional investing, depending on how businesses reward early supporters.
+                When the businesses you backed hit key moments — like a Series A, a revenue milestone, or a new funding round — Seedling can start issuing early returns instead of making you wait years for an IPO.
               </p>
             </Card>
           </div>
@@ -167,28 +154,28 @@ export default function Home() {
       {/* Social Proof — See who your friends and the pros back */}
       <section id="for-investors" className="py-20 md:py-28 bg-bg">
         <Container>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-start">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 lg:items-center">
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
             >
-              <h2 className="text-3xl md:text-4xl font-semibold tracking-tight text-neutral-900 leading-tight">
+              <h2 className="text-2xl font-semibold text-neutral-900 sm:text-3xl lg:text-4xl whitespace-nowrap">
                 See who <RotatingPhrase /> back.
               </h2>
-              <ul className="mt-6 space-y-3.5 text-neutral-700">
+              <ul className="mt-6 space-y-3 text-base text-neutral-700 sm:text-lg">
                 <li className="flex items-start gap-2">
-                  <span className="mt-1 h-2 w-2 rounded-full bg-emerald-600 flex-shrink-0"></span>
-                  <span className="text-base md:text-lg">Social signals built in</span>
+                  <span className="mt-1 h-2 w-2 rounded-full bg-emerald-500"></span>
+                  <span>See which startups, creators, and local spots people you follow are backing.</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="mt-1 h-2 w-2 rounded-full bg-emerald-600 flex-shrink-0"></span>
-                  <span className="text-base md:text-lg">Follow famous investors and friends</span>
+                  <span className="mt-1 h-2 w-2 rounded-full bg-emerald-500"></span>
+                  <span>Follow friends, creators, and top investors to get their signals in one feed.</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="mt-1 h-2 w-2 rounded-full bg-emerald-600 flex-shrink-0"></span>
-                  <span className="text-base md:text-lg">Spot opportunities before they trend</span>
+                  <span className="mt-1 h-2 w-2 rounded-full bg-emerald-500"></span>
+                  <span>Let social signals guide when you endorse or invest.</span>
                 </li>
               </ul>
               <p className="mt-4 text-sm text-neutral-500">
@@ -203,22 +190,9 @@ export default function Home() {
               transition={{ duration: 0.6 }}
               className="flex justify-center md:justify-end"
             >
-              <DeviceFrame className="w-full max-w-[360px] md:max-w-[380px] hover:shadow-lg transition-shadow">
-                <PhasedAutoShowcase
-                  first={<MarkCubanProfileShowcase />}
-                  second={<HeroFeedFromApp />}
-                  firstDuration={15000}
-                  secondDuration={15000}
-                  crossfadeMs={120}
-                  blink={true}
-                  scrollSpeed={1.6}
-                  scrollOnce={true}
-                  scrollStartDelayMs={3000}
-                  endDwellMs={2000}
-                  activateOnVisible={true}
-                  startOnVisibleDelayMs={1200}
-                />
-              </DeviceFrame>
+              <div className="w-full max-w-xs sm:max-w-sm rounded-[32px] border border-neutral-200 bg-white shadow-xl shadow-black/5">
+                <SocialProofFeed />
+              </div>
             </motion.div>
           </div>
         </Container>
@@ -229,10 +203,10 @@ export default function Home() {
         <Container>
           <div className="text-center mb-16">
             <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-ink mb-4">
-              Endorsements: the free signal that powers Seedling
+              Endorsements: the signal that powers Seedling
             </h2>
             <p className="text-lg sm:text-xl text-muted max-w-2xl mx-auto">
-              Show belief early, help startups gain visibility, and optionally convert to investment later.
+              Show belief early. Use your limited free endorsements to boost companies you love—and get rewarded when they win.
             </p>
           </div>
           
@@ -242,10 +216,10 @@ export default function Home() {
                 <Heart className="w-6 h-6 text-brand-amber" />
               </div>
               <h3 className="text-xl font-bold text-ink mb-3">
-                Signal belief early
+                Endorse for free
               </h3>
               <p className="text-muted">
-                Endorse companies you believe in, even before they're ready to accept investment.
+                You get a limited number of free endorsements. Use them on companies you genuinely believe in—no money required.
               </p>
             </Card>
 
@@ -254,10 +228,10 @@ export default function Home() {
                 <Users className="w-6 h-6 text-brand" />
               </div>
               <h3 className="text-xl font-bold text-ink mb-3">
-                Social validation amplifies visibility
+                Your endorsement moves the needle
               </h3>
               <p className="text-muted">
-                Your endorsement helps founders build credibility and attract more supporters.
+                Endorsing boosts a company's credibility, helps them trend, and increases their visibility to investors and supporters.
               </p>
             </Card>
 
@@ -266,10 +240,10 @@ export default function Home() {
                 <ArrowRight className="w-6 h-6 text-brand" />
               </div>
               <h3 className="text-xl font-bold text-ink mb-3">
-                Early support gets rewarded
+                Early believers get rewarded
               </h3>
               <p className="text-muted">
-                Early endorsers get rewarded when the companies they back grow, gain traction, or hit key milestones.
+                When endorsed companies hit key milestones—traction, revenue, or fundraising—you get paid for getting it right early.
               </p>
             </Card>
           </div>
@@ -301,37 +275,37 @@ export default function Home() {
                 For Individuals & Investors
               </h3>
               <h2 className="text-3xl sm:text-4xl font-bold text-ink mb-4">
-                Start building upside early — even before you invest
+                Back companies your way — endorse for free or invest directly
               </h2>
               <p className="text-lg text-muted mb-8">
-                Endorse ideas you believe in, build a track record, and potentially get rewarded earlier — without needing to write a check on day one.
+                Use endorsements to back companies for free, or invest directly when an opportunity is open. Either way, your early conviction can turn into real financial upside.
               </p>
 
               <div className="grid gap-6 mb-8">
                 <Card>
                   <h3 className="text-xl font-bold text-ink mb-3">
-                    Participate without spending first
+                    Choose how you want to support: endorse or invest
                   </h3>
                   <p className="text-muted leading-relaxed">
-                    Use endorsements to back startups, local businesses, and creators you believe in—no upfront investment required.
+                    Some companies on Seedling accept investments, others only accept endorsements. Use your free endorsements to support companies you believe in, or invest directly when a raise opens.
                   </p>
                 </Card>
 
                 <Card delay={0.1}>
                   <h3 className="text-xl font-bold text-ink mb-3">
-                    Get recognized and potentially rewarded earlier
+                    Get paid for early conviction
                   </h3>
                   <p className="text-muted leading-relaxed">
-                    Early endorsers may gain financial upside when companies grow, raise funding, or offer early supporter rewards. Your endorsement can unlock perks, access, and even potential monetary benefits.
+                    When companies you've backed—through endorsements or investments—hit milestones like revenue, growth, or funding, you can earn cash rewards and other financial upside for getting it right early.
                   </p>
                 </Card>
 
                 <Card delay={0.2}>
                   <h3 className="text-xl font-bold text-ink mb-3">
-                    Build a public profile of what you believe in
+                    Turn your picks into a public track record
                   </h3>
                   <p className="text-muted leading-relaxed">
-                    Your profile shows who you've backed, your early calls, and how your picks have evolved over time. And as you accumulate early picks, your track record becomes a potential source of financial gain when your endorsed companies succeed.
+                    Your profile shows who you've backed and how those picks perform over time. As your calls play out, your history becomes visible proof of skill and a potential source of financial gain.
                   </p>
                 </Card>
               </div>
@@ -362,16 +336,16 @@ export default function Home() {
                 Turn belief into traction for your business
               </h2>
               <p className="text-lg text-muted mb-8">
-                Collect public support, build a warm list of backers, and be ready for funding when the time is right.
+                Collect public support, prove real demand, and get raise-ready with AI that helps you turn endorsements into a compelling story.
               </p>
 
               <div className="grid gap-6 mb-8">
                 <Card>
                   <h3 className="text-xl font-bold text-ink mb-3">
-                    Capture belief before you raise
+                    Capture belief and build your supporter list
                   </h3>
                   <p className="text-muted leading-relaxed">
-                    Collect endorsements from customers and fans even before you open a funding round.
+                    Collect endorsements from customers and fans before and during your raise. Turn them into a warm list of backers you own, so you're not starting from zero when you fundraise.
                   </p>
                 </Card>
 
@@ -380,38 +354,18 @@ export default function Home() {
                     Show investors real demand
                   </h3>
                   <p className="text-muted leading-relaxed">
-                    Use public endorsements and follower signals to prove there's real interest behind your business.
+                    Use public endorsements, follower signals, and your supporter list to prove there's genuine interest behind your business—not just a pitch deck or a slide.
                   </p>
                 </Card>
 
                 <Card delay={0.2}>
                   <h3 className="text-xl font-bold text-ink mb-3">
-                    Build a supporter list you own
+                    AI that helps you launch and raise faster
                   </h3>
                   <p className="text-muted leading-relaxed">
-                    Grow a list of people who've already raised their hand so you're not starting from zero when you fundraise.
+                    Seedling's AI helps you turn endorsements into a polished business page, surfaces your strongest signals, and guides you through the steps to get raise-ready while you work with your own advisors where needed.
                   </p>
                 </Card>
-              </div>
-
-              {/* AI Card */}
-              <div className="rounded-2xl border border-slate-200 bg-white/60 p-4 mt-4 flex gap-3 mb-8">
-                <div className="flex-shrink-0">
-                  <div className="w-10 h-10 rounded-full bg-brand/10 flex items-center justify-center">
-                    <Sparkles className="w-5 h-5 text-brand" />
-                  </div>
-                </div>
-                <div className="flex-1">
-                  <h4 className="text-base font-semibold text-ink mb-2">
-                    AI that helps you launch and raise faster
-                  </h4>
-                  <p className="text-sm text-muted leading-relaxed mb-2">
-                    Seedling's AI helps you set up a polished business page in minutes, recommends how to position your story, and, once you've gathered enough endorsements, guides you through the documents and steps you'll need to get ready for real investment.
-                  </p>
-                  <p className="text-xs text-slate-500 mt-2">
-                    We help streamline legal and compliance prep, but you'll still make final decisions and work with your own advisors where required.
-                  </p>
-                </div>
               </div>
 
               <div className="mt-auto">
@@ -429,6 +383,7 @@ export default function Home() {
       </section>
 
       {/* Gallery / Product Strip */}
+      {false && (
       <section className="py-24 bg-bg overflow-hidden">
         <Container>
           <SectionTitle
@@ -546,11 +501,13 @@ export default function Home() {
           </div>
         </Container>
       </section>
+      )}
 
       {/* Success Stories */}
-      <SuccessStories />
+      {false && <SuccessStories />}
 
       {/* Testimonials */}
+      {false && (
       <section className="py-24 bg-surface">
         <Container>
           <SectionTitle
@@ -593,6 +550,7 @@ export default function Home() {
           </div>
         </Container>
       </section>
+      )}
 
       {/* Whitepaper Section */}
       <section id="whitepaper" className="py-16 md:py-24 bg-neutral-50">

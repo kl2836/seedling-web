@@ -8,7 +8,7 @@ import Container from '@/components/Container';
 import SectionTitle from '@/components/SectionTitle';
 import Card from '@/components/Card';
 import FAQItem from '@/components/FAQItem';
-import { Heart, ArrowRight, CheckCircle2, TrendingUp, Users, Star, Sparkles, Search } from 'lucide-react';
+import { Heart, ArrowRight, CheckCircle2, TrendingUp, Users, Star, Sparkles, Search, DollarSign, Key, Zap, Gift } from 'lucide-react';
 
 export default function EndorsementsPage() {
   return (
@@ -34,21 +34,21 @@ export default function EndorsementsPage() {
                 What is an endorsement on Seedling?
               </h1>
               <p className="text-xl sm:text-2xl text-muted mb-8 leading-relaxed">
-                An endorsement is a free, public signal that you believe in a business. It sits between a "like" and an investment—visible, meaningful, and with the potential for future financial upside when things go well.
+                An endorsement is a free, limited signal that you believe in a business. It's more meaningful than a like, less committing than an investment, and it can earn you rewards when the companies you back succeed. Every endorsement is public on your profile and on the company's page, so your calls become part of your visible track record.
               </p>
               
               <ul className="space-y-3 mb-8">
                 <li className="flex items-start gap-3">
                   <CheckCircle2 className="w-5 h-5 text-brand flex-shrink-0 mt-0.5" />
-                  <span className="text-lg text-ink"><strong>Free to send:</strong> No money required to endorse.</span>
+                  <span className="text-lg text-ink"><strong>Free & limited:</strong> You only get a limited number of endorsements—use them on companies you genuinely believe in.</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <CheckCircle2 className="w-5 h-5 text-brand flex-shrink-0 mt-0.5" />
-                  <span className="text-lg text-ink"><strong>Public and persistent:</strong> Shows up on your profile and the company's page.</span>
+                  <span className="text-lg text-ink"><strong>Public & persistent:</strong> Your endorsements are visible on your profile and on each company you support.</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <CheckCircle2 className="w-5 h-5 text-brand flex-shrink-0 mt-0.5" />
-                  <span className="text-lg text-ink"><strong>Can lead to upside:</strong> Early endorsements may later unlock perks, access, or financial rewards when companies grow or raise.</span>
+                  <span className="text-lg text-ink"><strong>Can earn rewards:</strong> When endorsed companies hit key milestones—traction, revenue, or funding—your early endorsements may unlock financial rewards, perks, or access.</span>
                 </li>
               </ul>
 
@@ -77,54 +77,51 @@ export default function EndorsementsPage() {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="relative mt-8 md:mt-0"
             >
-              <Card className="p-6">
-                <div className="space-y-4">
-                  <div className="flex items-center gap-3">
-                    <div className="w-12 h-12 rounded-full bg-gradient-to-br from-emerald-400 to-blue-400 flex items-center justify-center">
-                      <span className="text-white text-sm font-bold">AC</span>
+              <div className="space-y-4 rounded-[var(--radius-2xl)] bg-white shadow-[var(--shadow-card)] p-4 sm:p-6">
+                {/* Card 1 – endorsement + rank */}
+                <div className="rounded-2xl bg-slate-50 p-4 sm:p-5">
+                  <div className="text-xs font-medium uppercase tracking-wider text-slate-500 mb-3">
+                    Your endorsement
+                  </div>
+                  <div className="flex items-center justify-between mb-3">
+                    <div className="flex items-center gap-3">
+                      <div className="w-10 h-10 rounded-full bg-gradient-to-br from-emerald-400 to-blue-400 flex items-center justify-center">
+                        <span className="text-white text-sm font-bold">AC</span>
+                      </div>
+                      <div>
+                        <p className="text-sm font-semibold text-slate-900">Alex Chen</p>
+                        <p className="text-xs text-slate-500">Endorsed Nova AI Robotics</p>
+                      </div>
                     </div>
-                    <div>
-                      <div className="font-semibold text-ink">Alex Chen</div>
-                      <div className="text-sm text-muted">endorsed</div>
+                    <span className="rounded-full bg-emerald-100 px-3 py-1 text-xs font-medium text-emerald-700">
+                      Endorsed
+                    </span>
+                  </div>
+                  <div className="text-xs text-slate-600">
+                    Endorsed 8 months ago · You were <span className="font-semibold">#14 of 9,220 supporters</span>.
+                  </div>
+                </div>
+
+                {/* Card 2 – payout */}
+                <div className="rounded-2xl bg-emerald-50 p-4 sm:p-5">
+                  <div className="flex items-center justify-between mb-2">
+                    <div className="text-xs font-medium uppercase tracking-wider text-emerald-700">
+                      Milestone payout unlocked
+                    </div>
+                    <div className="text-lg font-bold text-emerald-800">
+                      +$58.40
                     </div>
                   </div>
-                  <Card className="p-4 bg-brand-light/5">
-                    <div className="flex items-center gap-3 mb-3">
-                      <div className="w-10 h-10 rounded-lg bg-[var(--grad-brand)] flex items-center justify-center">
-                        <span className="text-white text-xs">🌱</span>
-                      </div>
-                      <div className="flex-1">
-                        <div className="font-semibold text-ink">Jenny's Kitchen</div>
-                        <div className="text-xs text-muted">Local food startup</div>
-                      </div>
-                      <span className="px-3 py-1 rounded-full bg-emerald-100 text-emerald-700 text-xs font-semibold">
-                        Endorsed
-                      </span>
-                    </div>
-                    <div className="text-xs text-muted">
-                      Endorsed 6 months ago · Influenced 230 backers
-                    </div>
-                  </Card>
+                  <div className="text-xs text-emerald-900 mb-2">
+                    From <span className="font-semibold">Nova AI Robotics</span> · Series A milestone
+                  </div>
+                  <div className="text-xs text-emerald-900 leading-relaxed">
+                    Because you were an early endorser (<span className="font-semibold">#14 of 9,220</span>),
+                    this milestone unlocked a cash reward for you—long before any IPO or exit.
+                  </div>
                 </div>
-              </Card>
+              </div>
             </motion.div>
-          </div>
-        </Container>
-      </section>
-
-      {/* One Sentence Definition */}
-      <section className="py-16 md:py-24 bg-surface">
-        <Container>
-          <div className="max-w-3xl mx-auto text-center">
-            <div className="w-16 h-16 rounded-full bg-brand-light/20 flex items-center justify-center mx-auto mb-6">
-              <Sparkles className="w-8 h-8 text-brand" />
-            </div>
-            <h2 className="text-3xl md:text-4xl font-bold text-ink mb-6">
-              One sentence definition
-            </h2>
-            <p className="text-lg sm:text-xl text-muted leading-relaxed">
-              An endorsement on Seedling is a scarce, public commitment that says "I believe in this business," recorded in your profile and the company's page, with the potential to convert into real investment value or rewards later—without requiring money up front.
-            </p>
           </div>
         </Container>
       </section>
@@ -149,27 +146,17 @@ export default function EndorsementsPage() {
                 },
                 {
                   title: 'Endorse',
-                  body: "You tap 'Endorse' to publicly back them. No money is required to do this.",
+                  body: 'You tap "Endorse" to publicly back them using one of your limited free endorsements—no money required.',
                   icon: Heart,
                 },
                 {
-                  title: 'Signal',
-                  body: 'Your endorsement appears on your profile and on the company page, contributing to their public endorsement count and momentum score.',
+                  title: 'Your signal builds momentum',
+                  body: 'Your endorsement appears on your profile, the company page, and in friends\' feeds, helping grow their endorsement count and social proof.',
                   icon: Star,
                 },
                 {
-                  title: 'Spread',
-                  body: 'Your network can see what you endorsed, helping more people discover the business and creating social proof.',
-                  icon: Users,
-                },
-                {
-                  title: 'Event',
-                  body: 'The business grows, raises a round, or decides to reward early supporters (for example: perks, access, or investment allocations).',
-                  icon: TrendingUp,
-                },
-                {
                   title: 'Potential upside',
-                  body: 'Depending on how the company chooses to reward endorsers, your early endorsement may translate into financial rewards, special access, or priority investment opportunities.',
+                  body: 'When the business hits key milestones—like revenue growth or a funding round—your early endorsement may unlock financial rewards, perks, or special access.',
                   icon: Sparkles,
                 },
               ].map((step, i) => (
@@ -188,7 +175,7 @@ export default function EndorsementsPage() {
                       {step.body}
                     </p>
                   </Card>
-                  {i < 5 && (
+                  {i < 3 && (
                     <ArrowRight className="w-6 h-6 text-muted flex-shrink-0" />
                   )}
                 </div>
@@ -205,27 +192,17 @@ export default function EndorsementsPage() {
                 },
                 {
                   title: 'Endorse',
-                  body: "You tap 'Endorse' to publicly back them. No money is required to do this.",
+                  body: 'You tap "Endorse" to publicly back them using one of your limited free endorsements—no money required.',
                   icon: Heart,
                 },
                 {
-                  title: 'Signal',
-                  body: 'Your endorsement appears on your profile and on the company page, contributing to their public endorsement count and momentum score.',
+                  title: 'Your signal builds momentum',
+                  body: 'Your endorsement appears on your profile, the company page, and in friends\' feeds, helping grow their endorsement count and social proof.',
                   icon: Star,
                 },
                 {
-                  title: 'Spread',
-                  body: 'Your network can see what you endorsed, helping more people discover the business and creating social proof.',
-                  icon: Users,
-                },
-                {
-                  title: 'Event',
-                  body: 'The business grows, raises a round, or decides to reward early supporters (for example: perks, access, or investment allocations).',
-                  icon: TrendingUp,
-                },
-                {
                   title: 'Potential upside',
-                  body: 'Depending on how the company chooses to reward endorsers, your early endorsement may translate into financial rewards, special access, or priority investment opportunities.',
+                  body: 'When the business hits key milestones—like revenue growth or a funding round—your early endorsement may unlock financial rewards, perks, or special access.',
                   icon: Sparkles,
                 },
               ].map((step, i) => (
@@ -246,7 +223,7 @@ export default function EndorsementsPage() {
                       {step.body}
                     </p>
                   </Card>
-                  {i < 5 && (
+                  {i < 3 && (
                     <div className="flex flex-col items-center pt-2">
                       <ArrowRight className="w-5 h-5 text-muted rotate-90" />
                     </div>
@@ -296,168 +273,70 @@ export default function EndorsementsPage() {
             </Card>
           </div>
 
-          {/* Network diagram visual */}
-          <div className="max-w-2xl mx-auto">
-            <Card className="p-8">
-              <div className="flex items-center justify-center gap-4 flex-wrap">
-                {[1, 2, 3].map((i) => (
-                  <div key={i} className="flex flex-col items-center gap-2">
-                    <div className="w-12 h-12 rounded-full bg-gradient-to-br from-emerald-400 to-blue-400 flex items-center justify-center">
-                      <span className="text-white text-xs font-bold">U{i}</span>
-                    </div>
-                    <div className="w-16 h-0.5 bg-brand-light"></div>
-                    <div className="w-10 h-10 rounded-lg bg-[var(--grad-brand)] flex items-center justify-center">
-                      <span className="text-white text-xs">B{i}</span>
-                    </div>
-                  </div>
-                ))}
-              </div>
-              <p className="text-center text-sm text-muted mt-4">
-                Endorsements connect people and businesses
-              </p>
-            </Card>
-          </div>
-        </Container>
-      </section>
-
-      {/* Comparison Table */}
-      <section className="py-16 md:py-24 bg-bg">
-        <Container>
-          <SectionTitle
-            title="How endorsements compare to likes and investments"
-            subtitle="Endorsements sit in the middle: stronger than a like, lighter than an investment."
-            className="mb-16"
-          />
-          
-          <div className="max-w-5xl mx-auto">
-            <div className="bg-surface rounded-[var(--radius-xl)] shadow-[var(--shadow-card)] overflow-hidden">
-              <div className="overflow-x-auto">
-                <table className="w-full">
-                  <thead>
-                    <tr className="border-b border-border">
-                      <th className="text-left p-4 font-semibold text-ink"></th>
-                      <th className="text-left p-4 font-semibold text-ink">Likes</th>
-                      <th className="text-left p-4 font-semibold text-ink">Endorsements</th>
-                      <th className="text-left p-4 font-semibold text-ink">Investments</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr className="border-b border-border">
-                      <td className="p-4 font-medium text-ink">Cost</td>
-                      <td className="p-4 text-muted">Free</td>
-                      <td className="p-4 text-muted">Free to send</td>
-                      <td className="p-4 text-muted">Requires money up front</td>
-                    </tr>
-                    <tr className="border-b border-border">
-                      <td className="p-4 font-medium text-ink">Visibility</td>
-                      <td className="p-4 text-muted">Often buried in feeds</td>
-                      <td className="p-4 text-muted">Prominently displayed on your profile and the company page</td>
-                      <td className="p-4 text-muted">May be private or visible only in specific contexts</td>
-                    </tr>
-                    <tr className="border-b border-border">
-                      <td className="p-4 font-medium text-ink">Strength of signal</td>
-                      <td className="p-4 text-muted">Low — casual approval</td>
-                      <td className="p-4 text-muted">Medium-high — explicit, scarce commitment</td>
-                      <td className="p-4 text-muted">Very high — financial commitment</td>
-                    </tr>
-                    <tr className="border-b border-border">
-                      <td className="p-4 font-medium text-ink">Potential financial upside</td>
-                      <td className="p-4 text-muted">None</td>
-                      <td className="p-4 text-muted">Possible, if companies choose to reward early supporters or convert endorsements into investment allocations</td>
-                      <td className="p-4 text-muted">Yes, but with risk and no guarantee</td>
-                    </tr>
-                    <tr>
-                      <td className="p-4 font-medium text-ink">Risk</td>
-                      <td className="p-4 text-muted">None</td>
-                      <td className="p-4 text-muted">Very low direct risk (no capital at stake), but reputational</td>
-                      <td className="p-4 text-muted">High financial risk; you can lose money</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-            <p className="text-xs text-muted mt-4 text-center max-w-3xl mx-auto">
-              Rewards and financial outcomes are never guaranteed. Any investing involves risk, including possible loss of capital.
-            </p>
-          </div>
+          <p className="mt-12 text-center text-lg md:text-xl text-ink max-w-3xl mx-auto font-medium">
+            Early endorsements push promising companies into the spotlight — and can pay back the people who saw it early.
+          </p>
         </Container>
       </section>
 
       {/* How Rewards Work */}
-      <section className="py-16 md:py-24 bg-surface">
+      <section className="py-16 md:py-24 bg-bg">
         <Container>
           <SectionTitle
             title="How rewards and financial upside can work"
-            subtitle="Endorsements do not guarantee returns, but they can be used to recognize early supporters in several ways."
+            subtitle="Endorsements do not guarantee returns. But Seedling can reward early supporters when the companies they backed hit meaningful milestones."
             className="mb-12"
           />
           
           <div className="max-w-3xl mx-auto mb-12">
             <p className="text-lg text-muted mb-6">
-              Seedling gives businesses tools to recognize and reward early endorsers. Different companies may choose different approaches, but here are some examples of how your endorsement could matter financially over time:
+              Seedling tracks milestones across the businesses you endorse — including traction, revenue growth, and fundraising events. When a company reaches one of these verified milestones, Seedling may issue milestone-based rewards to early endorsers based on how early they backed the company.
             </p>
             
             <ul className="space-y-4">
               <li className="flex items-start gap-3">
-                <CheckCircle2 className="w-5 h-5 text-brand flex-shrink-0 mt-0.5" />
-                <span className="text-muted">Priority access or allocations when a company opens a community round</span>
+                <div className="w-10 h-10 rounded-full bg-brand-light/20 flex items-center justify-center flex-shrink-0">
+                  <DollarSign className="w-5 h-5 text-brand" />
+                </div>
+                <div>
+                  <strong className="text-ink block mb-1">Cash payouts</strong>
+                  <span className="text-muted">Seedling may issue real-money milestone rewards when a company hits key traction or fundraising milestones.</span>
+                </div>
               </li>
               <li className="flex items-start gap-3">
-                <CheckCircle2 className="w-5 h-5 text-brand flex-shrink-0 mt-0.5" />
-                <span className="text-muted">Bonus terms or small investment multipliers for early endorsers</span>
+                <div className="w-10 h-10 rounded-full bg-brand-light/20 flex items-center justify-center flex-shrink-0">
+                  <Key className="w-5 h-5 text-brand" />
+                </div>
+                <div>
+                  <strong className="text-ink block mb-1">Priority access</strong>
+                  <span className="text-muted">Seedling can offer endorsers early or preferred access to community rounds or allocation opportunities when investing opens.</span>
+                </div>
               </li>
               <li className="flex items-start gap-3">
-                <CheckCircle2 className="w-5 h-5 text-brand flex-shrink-0 mt-0.5" />
-                <span className="text-muted">Revenue-sharing perks or loyalty-style rewards for early customers</span>
+                <div className="w-10 h-10 rounded-full bg-brand-light/20 flex items-center justify-center flex-shrink-0">
+                  <Zap className="w-5 h-5 text-brand" />
+                </div>
+                <div>
+                  <strong className="text-ink block mb-1">Reward multipliers</strong>
+                  <span className="text-muted">Early positions may receive boosted rewards or multipliers when Seedling issues milestone payouts.</span>
+                </div>
               </li>
               <li className="flex items-start gap-3">
-                <CheckCircle2 className="w-5 h-5 text-brand flex-shrink-0 mt-0.5" />
-                <span className="text-muted">Non-financial perks (access, experiences, or recognition) that still have real value</span>
+                <div className="w-10 h-10 rounded-full bg-brand-light/20 flex items-center justify-center flex-shrink-0">
+                  <Gift className="w-5 h-5 text-brand" />
+                </div>
+                <div>
+                  <strong className="text-ink block mb-1">Perks & recognition</strong>
+                  <span className="text-muted">Optional non-financial benefits companies may choose to offer, such as access, experiences, or recognition.</span>
+                </div>
               </li>
             </ul>
           </div>
-
-          {/* Visual: Endorsement to Rewards */}
-          <div className="max-w-2xl mx-auto">
-            <Card className="p-6">
-              <div className="text-center mb-6">
-                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-light/20">
-                  <Heart className="w-5 h-5 text-brand" />
-                  <span className="font-semibold text-ink">Endorsement</span>
-                </div>
-              </div>
-              <div className="flex justify-center mb-4">
-                <ArrowRight className="w-6 h-6 text-muted rotate-90" />
-              </div>
-              <div className="grid grid-cols-2 gap-4">
-                <Card className="p-4 bg-brand-light/5">
-                  <div className="text-sm font-semibold text-ink mb-2">Priority Access</div>
-                  <div className="text-xs text-muted">Early round allocations</div>
-                </Card>
-                <Card className="p-4 bg-brand-light/5">
-                  <div className="text-sm font-semibold text-ink mb-2">Bonus Terms</div>
-                  <div className="text-xs text-muted">Investment multipliers</div>
-                </Card>
-                <Card className="p-4 bg-brand-light/5">
-                  <div className="text-sm font-semibold text-ink mb-2">Revenue Share</div>
-                  <div className="text-xs text-muted">Loyalty rewards</div>
-                </Card>
-                <Card className="p-4 bg-brand-light/5">
-                  <div className="text-sm font-semibold text-ink mb-2">Perks & Access</div>
-                  <div className="text-xs text-muted">Experiences, recognition</div>
-                </Card>
-              </div>
-            </Card>
-          </div>
-
-          <p className="text-xs text-muted mt-6 text-center max-w-3xl mx-auto">
-            These examples are illustrative. Actual reward structures depend on each business and applicable regulations. Nothing here is investment advice or a promise of returns.
-          </p>
         </Container>
       </section>
 
       {/* Strategic Use */}
-      <section className="py-16 md:py-24 bg-bg">
+      <section className="py-16 md:py-24 bg-surface">
         <Container>
           <SectionTitle
             title="Using your endorsements strategically"
@@ -467,25 +346,25 @@ export default function EndorsementsPage() {
           <div className="grid md:grid-cols-2 gap-12 items-center max-w-5xl mx-auto">
             <div>
               <p className="text-lg text-muted mb-6">
-                Endorsements are free to send, but they're not meant to be spam. Treat them like a portfolio of your beliefs.
+                Endorsements are free to send, but they're not meant to be spam. Treat them like a portfolio of your strongest beliefs.
               </p>
               
               <ul className="space-y-4">
                 <li className="flex items-start gap-3">
                   <CheckCircle2 className="w-5 h-5 text-brand flex-shrink-0 mt-0.5" />
-                  <span className="text-muted"><strong className="text-ink">Be selective:</strong> endorse companies you truly believe have a shot at growing.</span>
+                  <span className="text-muted"><strong className="text-ink">Be selective:</strong> Endorse the companies you genuinely believe can hit real milestones. Your rewards improve when you get it right early.</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <CheckCircle2 className="w-5 h-5 text-brand flex-shrink-0 mt-0.5" />
-                  <span className="text-muted"><strong className="text-ink">Diversify:</strong> back a mix of local businesses, ambitious startups, and creators.</span>
+                  <span className="text-muted"><strong className="text-ink">Diversify:</strong> Back a mix of local spots, ambitious startups, and creators so you're not relying on a single outcome.</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <CheckCircle2 className="w-5 h-5 text-brand flex-shrink-0 mt-0.5" />
-                  <span className="text-muted"><strong className="text-ink">Think long-term:</strong> many outcomes will take time; not every endorsement will lead to rewards.</span>
+                  <span className="text-muted"><strong className="text-ink">Expect some misses:</strong> Not every endorsement will lead to rewards — and that's okay. Think in terms of a portfolio, not a perfect hit rate.</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <CheckCircle2 className="w-5 h-5 text-brand flex-shrink-0 mt-0.5" />
-                  <span className="text-muted"><strong className="text-ink">Build a narrative:</strong> your endorsement history tells a story about what you see early.</span>
+                  <span className="text-muted"><strong className="text-ink">Build your track record:</strong> Over time, your endorsement history becomes visible proof of your early calls and can influence the rewards you earn as companies grow.</span>
                 </li>
               </ul>
             </div>
@@ -500,6 +379,9 @@ export default function EndorsementsPage() {
                   <div className="flex-1">
                     <div className="text-sm font-semibold text-ink">Daily Grind Café</div>
                     <div className="text-xs text-muted">Local café</div>
+                    <div className="text-xs text-emerald-700 mt-1">
+                      Early endorsement · You were <span className="font-semibold">#12 of 847</span> supporters
+                    </div>
                   </div>
                 </div>
                 <div className="flex items-center gap-3 p-3 bg-brand-light/5 rounded-lg">
@@ -509,6 +391,9 @@ export default function EndorsementsPage() {
                   <div className="flex-1">
                     <div className="text-sm font-semibold text-ink">TechFlow Solutions</div>
                     <div className="text-xs text-muted">AI startup</div>
+                    <div className="text-xs text-emerald-700 mt-1">
+                      Early endorsement · You were <span className="font-semibold">#3 of 10,240</span> supporters
+                    </div>
                   </div>
                 </div>
                 <div className="flex items-center gap-3 p-3 bg-brand-light/5 rounded-lg">
@@ -518,6 +403,9 @@ export default function EndorsementsPage() {
                   <div className="flex-1">
                     <div className="text-sm font-semibold text-ink">Creative Studio</div>
                     <div className="text-xs text-muted">Creator</div>
+                    <div className="text-xs text-emerald-700 mt-1">
+                      Early endorsement · You were <span className="font-semibold">#28 of 2,103</span> supporters
+                    </div>
                   </div>
                 </div>
               </div>
@@ -527,7 +415,7 @@ export default function EndorsementsPage() {
       </section>
 
       {/* FAQ Section */}
-      <section className="py-16 md:py-24 bg-surface">
+      <section className="py-16 md:py-24 bg-bg">
         <Container>
           <SectionTitle
             title="Endorsement FAQ"
@@ -559,7 +447,7 @@ export default function EndorsementsPage() {
       </section>
 
       {/* Final CTA */}
-      <section className="py-16 md:py-24 bg-bg">
+      <section className="py-16 md:py-24 bg-surface">
         <Container>
           <div className="max-w-3xl mx-auto text-center">
             <h2 className="text-3xl md:text-4xl font-bold text-ink mb-4">

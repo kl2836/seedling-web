@@ -25,7 +25,7 @@ const RotatingPhrase: React.FC = () => {
         transition-opacity
         duration-300
       "
-      style={{ minWidth: "8.2rem" }}
+      style={{ minWidth: "10rem", display: "inline-block", textAlign: "left" }}
     >
       {phrases[index]}
     </span>
